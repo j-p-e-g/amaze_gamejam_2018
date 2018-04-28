@@ -27,13 +27,11 @@ public class RotateAroundObject : MonoBehaviour
     {
         if (Input.GetAxis("Submit") == 1)
         {
-			Debug.Log("entered Return");
             this.ResetTransform();
         }
         else
         {
             float translation = Input.GetAxis("Horizontal") * speed;
-			Debug.Log("translation: " + translation);
             this.DoRotate(translation);
         }
     }
