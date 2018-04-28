@@ -9,6 +9,7 @@ public class RotateAroundObject : MonoBehaviour
     public float initialTimeOffset = 15;
 
     private Transform initialTransform;
+	private int rotationDir = 0;
 
 	void Start ()
     {
@@ -21,6 +22,11 @@ public class RotateAroundObject : MonoBehaviour
 	void FixedUpdate ()
     {
         HandlePlayerInput(Time.deltaTime);
+		
+		if (rotationDir != 0)
+		{
+			this.DoRotate(rotationDir * speed);
+		}
     }
 
     private void HandlePlayerInput(float time)
@@ -38,8 +44,18 @@ public class RotateAroundObject : MonoBehaviour
 
     public void HandleArrowClick(int dir)
     {
-		Debug.Log("HandleArrowClick dir: " + dir);
-		this.DoRotate(dir * speed);
+		// Debug.Log("HandleArrowClick dir: " + dir);
+		// this.DoRotate(dir * speed);
+    }
+
+    public void OnStartRotating(int dir)
+    {
+		rotationDir = dir;
+    }
+
+    public void OnStopRotating()
+    {
+		rotationDir = 0;
     }
 
     private void DoRotate(float speed)
