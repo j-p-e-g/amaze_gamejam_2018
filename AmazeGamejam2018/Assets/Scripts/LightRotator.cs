@@ -13,9 +13,9 @@ public class LightRotator : MonoBehaviour {
 	
 	
 	void Update () {
-		
+		Debug.Log("Update");
 		float h = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-		myRigidbody.AddTorque(transform.up * h);
+		myRigidbody.AddTorque(transform.right * h);
 
 	
 	}
