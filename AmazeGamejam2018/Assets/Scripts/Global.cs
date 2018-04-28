@@ -28,6 +28,7 @@ public class Global : MonoBehaviour
     {
         if (Input.GetAxis("Submit") == 1)
         {
+			SoundManager.getInstance().playClickSound();
 			if (showObjectsAtEnd)
 			{
 				this.SetShadowCastingModeForObjects(shadowObjects, UnityEngine.Rendering.ShadowCastingMode.On);
