@@ -36,6 +36,12 @@ public class RotateAroundObject : MonoBehaviour
         }
     }
 
+    public void HandleArrowClick(int dir)
+    {
+		Debug.Log("HandleArrowClick dir: " + dir);
+		this.DoRotate(dir * speed);
+    }
+
     private void DoRotate(float speed)
     {
         transform.RotateAround(centerObject.transform.position, Vector3.up, speed);
